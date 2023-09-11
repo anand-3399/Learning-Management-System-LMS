@@ -1,6 +1,6 @@
 # Learning management system using django web framework
 
-![1694373426380](image/README/1694373426380.png)
+![1694373426380](Static/README/1694373426380.png "Home Page")
 
 Current features
 ----------------
