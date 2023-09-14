@@ -42,7 +42,7 @@ Current features
 
 # Installation
 
-- Clone the repo with `git clone https://github.com/adilmohak/django-lms.git`
+- Clone the repo with `git clone https://github.com/anand-3399/Learning-Management-System-LMS.git`
 - Create and activate a python virtual environment
 - `pip install -r requirements.txt`
 - Create `.env` file inside the root directory and include the following variables
