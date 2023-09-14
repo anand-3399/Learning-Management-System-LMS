@@ -1,4 +1,4 @@
-# Learning management system using django web framework
+# Learning management system - LMS
 
 ![1694373426380](static/README/1694373426380.png "Home Page")
 
