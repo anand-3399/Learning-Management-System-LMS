@@ -283,7 +283,7 @@ def result_sheet_pdf_view(request, id):
     normal.fontSize = 10
     normal.leading = 15
     level = result.filter(course_id=id).first()
-    title = "<b>Level: </b>" + str(level.course.level)
+    title = "<b>Board: </b>" + str(level.course.level)
     title = Paragraph(title.upper(), normal)
     Story.append(title)
     Story.append(Spacer(1,.6*inch))
@@ -363,7 +363,7 @@ def course_registration_form(request):
     normal.fontName = "Helvetica"
     normal.fontSize = 12
     normal.leading = 18
-    title = "<b>EZOD UNIVERSITY OF TECHNOLOGY, ADAMA</b>" 
+    title = "<b>NAVJEEVAN VIDYA MANDIR HIGH SCHOOL & JUNIOR COLLEGE</b>" 
     title = Paragraph(title.upper(), normal)
     Story.append(title)
     style = getSampleStyleSheet()
@@ -373,7 +373,7 @@ def course_registration_form(request):
     school.fontName = "Helvetica"
     school.fontSize = 10
     school.leading = 18
-    school_title = "<b>SCHOOL OF ELECTRICAL ENGINEERING & COMPUTING</b>"
+    school_title = "<b>(ENGLISH MEDIUM)    (PRIMARY / SECONDARY / COLLEGE)</b>"
     school_title = Paragraph(school_title.upper(), school)
     Story.append(school_title)
 
@@ -384,7 +384,7 @@ def course_registration_form(request):
     department.fontName = "Helvetica"
     department.fontSize = 9
     department.leading = 18
-    department_title = "<b>DEPARTMENT OF COMPUTER SCIENCE & ENGINEERING</b>"
+    department_title = "<b>MORE GAON, OSTWAL NAGARI, NALASOPARA EAST - 401209</b>"
     department_title = Paragraph(department_title, department)
     Story.append(department_title)
     Story.append(Spacer(1,.3*inch))
@@ -398,7 +398,7 @@ def course_registration_form(request):
     tbl_data = [
         [Paragraph("<b>Registration Number : " + request.user.username.upper() + "</b>", styles["Normal"])],
         [Paragraph("<b>Name : " + request.user.get_full_name.upper() + "</b>", styles["Normal"])],
-        [Paragraph("<b>Session : " + current_session.session.upper() + "</b>", styles["Normal"]), Paragraph("<b>Level: " + student.level + "</b>", styles["Normal"])
+        [Paragraph("<b>Session : " + current_session.session.upper() + "</b>", styles["Normal"]), Paragraph("<b>Board: " + student.level + "</b>", styles["Normal"])
         ]]
     tbl = Table(tbl_data)
     Story.append(tbl)
@@ -541,8 +541,7 @@ def course_registration_form(request):
     certification.leading = 18
     student = Student.objects.get(student__pk=request.user.id)
     certification_text = "CERTIFICATION OF REGISTRATION: I certify that <b>" + str(request.user.get_full_name.upper()) + "</b>\
-    has been duly registered for the <b>" + student.level + " level </b> of study in the department\
-    of COMPUTER SICENCE & ENGINEERING and that the courses and credits registered are as approved by the senate of the University"
+    has been duly registered for the <b>" + student.level + " level </b> of study with <b>NAVJEEVAN VIDYA MANDIR HIGH SCHOOL & JUNIOR COLLEGE</b> and that the courses and credits registered are as approved by the senate of the School"
     certification_text = Paragraph(certification_text, certification)
     Story.append(certification_text)
 
@@ -550,13 +549,13 @@ def course_registration_form(request):
 
     logo = settings.STATICFILES_DIRS[0] + "/img/logo.png"
     im_logo = Image(logo, 1*inch, 1*inch)
-    im_logo.__setattr__("_offs_x", -218)
+    im_logo.__setattr__("_offs_x", -250)
     im_logo.__setattr__("_offs_y", 480)
     Story.append(im_logo)
 
     picture =  settings.BASE_DIR + request.user.get_picture()
     im = Image(picture, 1.0*inch, 1.0*inch)
-    im.__setattr__("_offs_x", 218)
+    im.__setattr__("_offs_x", 250)
     im.__setattr__("_offs_y", 550)
     Story.append(im)
 

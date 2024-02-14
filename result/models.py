@@ -15,13 +15,13 @@ YEARS = (
     )
 
 # LEVEL_COURSE = "Level course"
-BACHLOAR_DEGREE = "Bachloar"
-MASTER_DEGREE = "Master"
+BACHLOAR_DEGREE = "SSC"
+MASTER_DEGREE = "CBSC"
 
 LEVEL = (
     # (LEVEL_COURSE, "Level course"),
-    (BACHLOAR_DEGREE, "Bachloar Degree"),
-    (MASTER_DEGREE, "Master Degree"),
+    (BACHLOAR_DEGREE, "State Board"),
+    (MASTER_DEGREE, "CBSC Board"),
 )
 
 FIRST = "First"
