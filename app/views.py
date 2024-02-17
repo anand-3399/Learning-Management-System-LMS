@@ -16,7 +16,7 @@ from accounts.models import User
 def home_view(request):
     items = NewsAndEvents.objects.all().order_by('-updated_date')
     context = {
-        'title': "News & Events | DjangoSMS",
+        'title': "News & Events | NVM High Scool E-Learning System",
         'items': items,
     }
     return render(request, 'app/index.html', context)
@@ -37,7 +37,7 @@ def post_add(request):
     else:
         form = NewsAndEventsForm()
     return render(request, 'app/post_add.html', {
-        'title': 'Add Post | DjangoSMS',
+        'title': 'Add Post | NVM LMS',
         'form': form,
     })
 
@@ -59,7 +59,7 @@ def edit_post(request, pk):
     else:
         form = NewsAndEventsForm(instance=instance)
     return render(request, 'app/post_add.html', {
-        'title': 'Edit Post | DjangoSMS',
+        'title': 'Edit Post | NVM LMS',
         'form': form,
     })
 
