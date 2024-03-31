@@ -14,6 +14,8 @@ import os
 import posixpath
 import environ
 from decouple import config
+import cloudinary_storage
+import cloudinary
 
 # Environment variables
 env = environ.Env()
@@ -43,7 +45,9 @@ DJANGO_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
+    'cloudinary_storage',
     "django.contrib.staticfiles",
+    'cloudinary',
 ]
 
 # Thired party apps
@@ -173,7 +177,7 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ["staticfiles"]))
 
-MEDIA_URL = "/media/"
+MEDIA_URL = "/test/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # -----------------------------------
@@ -208,3 +212,15 @@ REST_FRAMEWORK = {
 # Strip payment config
 STRIPE_SECRET_KEY = env("STRIPE_SECRET_KEY")
 STRIPE_PUBLISHABLE_KEY = env("STRIPE_PUBLISHABLE_KEY")
+
+
+
+# CLOUDINARY Storage
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': env("CLOUDINARY_CLOUD_NAME"),
+    'API_KEY': env("CLOUDINARY_API_KEY"),
+    'API_SECRET': env("CLOUDINARY_API_SECRET")
+}
+
+# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.RawMediaCloudinaryStorage'
